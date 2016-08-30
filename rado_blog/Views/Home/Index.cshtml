@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<rado_blog.Models.Post>
+<section class="row">
+
+    @foreach (var Post in Model)
+    {
+        <article class="post col-md-4">
+            <h2 class="title">@Post.Title</h2>
+            <div class="about">
+                Posted by 
+                @if (@Post.Autor != null)
+                {
+                    @: by 
+                        <i>@Post.Autor.FullName (@Post.Autor.UserName) </i>
+                }
+                <i>@Post.Autor </i> on @Post.Date 
+             </div>
+            <div class="body">
+                @Html.Raw(Post.Body)
+            </div>            
+        </article>
+    }
+
+</section>
