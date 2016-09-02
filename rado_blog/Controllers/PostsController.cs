@@ -63,7 +63,11 @@ namespace rado_blog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Edit/5
+        // GET: Posts/Edit/
+
+
+        [Authorize(Roles = "Administrators")]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,7 +86,9 @@ namespace rado_blog.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Administrators")]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Edit([Bind(Include = "Id,Title,Body")] Post post)
         {
             if (ModelState.IsValid)
@@ -96,6 +102,7 @@ namespace rado_blog.Controllers
         }
 
         // GET: Posts/Delete/5
+        [Authorize(Roles = "Administrators")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,6 +120,7 @@ namespace rado_blog.Controllers
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrators")]
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);

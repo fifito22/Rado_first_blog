@@ -1,4 +1,5 @@
 ﻿body {
+    background: #cbe8ee;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -32,4 +33,14 @@ textarea {
 .post>h2 {
 
     margin-top: 15px;
+}
+
+#sidebar {
+  float: right;
+  background: #d1bdbd;
+  padding: 10px;
+  top: 65px;
+  bottom: 0;
+  right: 50px;
+  position: absolute;
 }
